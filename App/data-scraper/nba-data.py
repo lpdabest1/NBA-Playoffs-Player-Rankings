@@ -77,9 +77,9 @@ players_dataframe = scraping_nba_playoff_player_stats(years)
 print(players_dataframe)
 
 # Convert DataFrame of players_dataframe to a csv
-players_db = players_dataframe.to_csv('nba_playoff_players.csv', index=False)
+players_db = players_dataframe.to_csv('App/pages/nba_playoff_players.csv', index=False)
 
 # Output the csv version of the dataframe
-print(players_db)
+#print(players_db)
 
 
