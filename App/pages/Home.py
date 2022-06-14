@@ -4,7 +4,7 @@ import streamlit as st
 import pandas as pd
 #from google.oauth2 import service_account
 #from google.cloud import storage
-
+import csv
 
 # Create API client.
 #credentials = service_account.Credentials.from_service_account_info(
@@ -44,19 +44,11 @@ This Application focuses on comparing the best playoff performances in the NBA o
 )
 
 
-nba_data = pd.read_csv('nba_playoff_players.csv')
+nba_data = pd.read_csv("nba_playoff_players.csv")
 nba_data_test = pd.DataFrame(nba_data)
 st.write("non-google dataframe")
 st.dataframe(nba_data)
 
-
-
-hide_dataframe_row_index = """
-            <style>
-            .row_heading.level0 {display:none}
-            .blank {display:none}
-            </style>
-            """
 
 #st.markdown(hide_dataframe_row_index, unsafe_allow_html=True)
 #st.dataframe(nba_data)
