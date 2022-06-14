@@ -44,7 +44,8 @@ This Application focuses on comparing the best playoff performances in the NBA o
 )
 
 
-nba_data = pd.read_csv("nba_playoff_players.csv")
+
+nba_data = pd.read_csv("App/pages/nba_playoff_players.csv")
 nba_data_test = pd.DataFrame(nba_data)
 st.write("non-google dataframe")
 st.dataframe(nba_data)
