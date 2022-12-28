@@ -8,7 +8,6 @@ from bs4 import BeautifulSoup as bs
 import pandas as pd
 import matplotlib as mpl
 
-
 years = list()
 
 # Desired Years Function
@@ -50,17 +49,61 @@ def scraping_nba_playoff_player_stats(years):
                         games_played = j.find('td', {'data-stat':'g'}).text
                         games_started = j.find('td',{'data-stat':'gs'}).text
                         minutes_played = j.find('td', {'data-stat':'mp'}).text
-
+                        field_goals = j.find('td', {'data-stat':'fg'}).text
+                        field_goals_attempted = j.find('td', {'data-stat':'fga'}).text
+                        field_goals_percentage = j.find('td', {'data-stat':'fg_pct'}).text
+                        three_point_field_goals = j.find('td', {'data-stat':'fg3'}).text
+                        three_point_field_goals_attempted = j.find('td', {'data-stat':'fg3a'}).text
+                        three_point_field_goals_percentage = j.find('td', {'data-stat':'fg3_pct'}).text
+                        two_point_field_goals = j.find('td', {'data-stat':'fg2'}).text
+                        two_point_field_goals_attempted = j.find('td', {'data-stat':'fg2a'}).text
+                        two_point_field_goals_percentage = j.find('td', {'data-stat':'fg2_pct'}).text
+                        effective_field_goal_percentage = j.find('td', {'data-stat':'efg_pct'}).text
+                        free_throws = j.find('td', {'data-stat':'ft'}).text
+                        free_throws_attempted = j.find('td', {'data-stat':'fta'}).text
+                        free_throws_percentage = j.find('td', {'data-stat':'ft_pct'}).text
+                        offensive_rebounds = j.find('td', {'data-stat':'orb'}).text
+                        defensive_rebounds = j.find('td', {'data-stat':'drb'}).text
+                        total_rebounds = j.find('td', {'data-stat':'trb'}).text
+                        assists = j.find('td', {'data-stat':'ast'}).text
+                        steals = j.find('td', {'data-stat':'stl'}).text
+                        blocks = j.find('td', {'data-stat':'blk'}).text
+                        turnovers = j.find('td', {'data-stat':'tov'}).text
+                        personal_fouls = j.find('td', {'data-stat':'pf'}).text
+                        points = j.find('td', {'data-stat':'pts'}).text
 
                         # Formatting the data point (per player) into a standard format
                         player = { "Player": player_name,
+                                    "Season": current_year,
                                     "Position": position,
                                     "Age": age,
                                     "Team": team,
                                     "GP": games_played,
                                     "GS": games_started,
                                     "MP": minutes_played,
-                                    "Season": current_year
+                                    "FG": field_goals,
+                                    "FGA": field_goals_attempted,
+                                    "FG%": field_goals_percentage,
+                                    "3P": three_point_field_goals,
+                                    "3PA": three_point_field_goals_attempted,
+                                    "3P%": three_point_field_goals_percentage,
+                                    "2P": two_point_field_goals,
+                                    "2PA": two_point_field_goals_attempted,
+                                    "2P%": two_point_field_goals_percentage,
+                                    "EFG": effective_field_goal_percentage,
+                                    "FT": free_throws,
+                                    "FTA": free_throws_attempted,
+                                    "FT%": free_throws_percentage,
+                                    "ORB": offensive_rebounds,
+                                    "DRB": defensive_rebounds,
+                                    "TRB": total_rebounds,
+                                    "AST": assists,
+                                    "STL": steals,
+                                    "BLK": blocks,
+                                    "TO": turnovers,
+                                    "PF": personal_fouls,
+                                    "PTS": points
+
                                  }
                         
                         players.append(player)
